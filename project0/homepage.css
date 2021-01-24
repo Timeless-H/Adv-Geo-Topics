@@ -1,0 +1,114 @@
+/* border box: content determines the area of the webpage*/
+html {
+   box-sizing: border-box;
+}
+
+*, *:before, *:after {
+   box-sizing: inherit;
+}
+
+body {
+  background-color: white;
+  font-family: Georgia, serif;
+  display: flex;  /*wrap capability*/
+  justify-content: center;
+  margin: 1em 3%; /*inward spacing*/
+}
+
+/* set a max width of the container*/
+.container0 {
+	max-width: 1400px;
+}
+.container0 .thumbnail-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.header {
+  text-align: center;
+}
+
+h6 {
+	font-size: 20px;
+	line-height: 1;
+  text-align: center;
+  position: relative;
+  margin-bottom: 30px
+}
+
+p {
+	margin-bottom: 30px; /*spacing at the bottom of paragraph*/
+  text-align: justify;
+}
+
+figure {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;  /*i.e. the width of the content, not sure*/
+  width:540px;
+  height:320px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.thumbnail-grid ul {  /*descendants selector: every ul (n content) under class ref */
+	display: flex;
+	/* flex-direction: row; */
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.thumbnail-grid li {
+	width: 50%;
+}
+
+.thumbnail-grid .thumbnail {
+	position: relative;	/* Set the container for the images */
+}
+
+.thumbnail-grid img {
+    display: block; /* Get rid of tiny space below images */
+    margin-bottom: .3em;
+    padding: 20px
+    /* style: "width:540px; height:320px;" */
+}
+
+.row-justify-content-between {
+  border: 2px solid blue;
+  text-align: center;
+}
+
+/* horizontal lists */
+.list-horizontal li {
+	display:inline-block;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.list-horizontal li:before {  /*list 'bullet' symbol and its properties*/
+	content: '\00a0\2022\00a0\00a0';
+	color:#999;
+	color:red;
+	font-size:15px;
+}
+
+.list-horizontal li:first-child:before {  /*bring first child in list before the content - which is the list 'bullet' symbol*/
+	content: '';
+}
+
+/* Content Links */
+a:link, a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover, a:active {  /*if you hover over a link n its active underline it n make the color blue*/
+	color: blue;
+	text-decoration: underline;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<!-- working with bootstrap 4 (layout): which is basically based on columns -->
+
+<html>
+  <head>
+    <meta name="viewport" content="width: device-width, initial-scale: 1.0">
+    <title>my bootstrap-based webpage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .row > div {
+        padding: 20px;  /*spacing around text*/
+        background-color: cyan;
+        border: 2px solid black; /*column and outer lines*/
+        text-align: left;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-3">
+        first item goes here
+      </div>
+      <div class="col-3">
+        second item goes here
+      </div>
+      <div class="col-3">
+        third item goes here
+      </div>
+      <div class="col-3">
+        forth item goes here
+      </div>
+    </div>
+  </body>
+</html>

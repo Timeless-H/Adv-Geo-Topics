@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<!-- Responsive design: specific screen size styling-->
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My webpage </title>
+    <style>
+      @media (min-width: 500px) {
+        body {background-color: red;
+              font-family: palatino, serif;
+              }
+        h1::before {content: "Welcome to My Webpage!"} /* ::before is a psuedo element*/
+      }
+      @media (max-width: 499px) {
+        body {background-color: blue;
+              font-family: helvetica, sans-serif;
+              }
+        h1::before {content: "Welcome!"}
+      }
+    </style>
+  </head>
+  <body>
+    <h1></h1>
+    A brief description of something...
+  </body>
+</html>
+
+
+<!-- meta tag: scale the web content to the viewport (screen area) of the user device
+h1 is leeft empty so that we can style it with the 'before' pseudo element-->

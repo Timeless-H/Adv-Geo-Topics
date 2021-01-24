@@ -1,0 +1,26 @@
+table {
+  border: 2px solid black;
+  border-collapse: collapse;  /* converts double border lines in the table to single one*/
+  width: 100%;  /* increases the general width of the table */
+  text-align: center;
+  justify-content:center;
+  margin-bottom: 30px; /*spacing at the bottom of paragraph*/
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 5px;  /* allows text to be slightly away from border */
+}
+
+/* td {
+    border: 1px solid black;
+} */
+
+th [scope="row"] {
+    background-color: lightgray;
+}
+
+p {
+	margin-bottom: 30px; /*spacing at the bottom of paragraph*/
+  text-align: justify;
+}

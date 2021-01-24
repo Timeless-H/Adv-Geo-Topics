@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<!-- Responsive Design: when printing a webpage, dont print certain things -->
+
+<html>
+  <head>
+    <title> My webpage </title>
+    <style>
+      @media print {
+        .screen-only {display: none}  /* .screen-only is a class referencing paragraph 3 */
+      }
+    </style>
+  </head>
+  <body>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+    <p class="screen-only"> The name "screen-only" is made up and this is paragraph wont appear when u print this page.</p>
+  </body>
+</html>
+
+
+<!-- this type of writting style (class="screen-only") is useful when info is
+important when webpage is being displayed on the screen but less/not important
+when printed.E.g. instructions on how to navigate a webpage. -->

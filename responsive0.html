@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<!-- Responsive design: specific screen size styling-->
+
+<html>
+  <head>
+    <title> My webpage </title>
+    <style>
+      @media (min-width: 500px) {
+        body {background-color: red;
+              font-family: palatino, serif;
+              }
+      }
+      @media (max-width: 499px) {
+        body {background-color: blue;
+              font-family: helvetica, sans-serif;
+              }
+      }
+    </style>
+  </head>
+  <body>
+    <h1> Welcome to my webpage </h1>
+    A brief description of something...
+  </body>
+</html>
+
+
+<!-- if the size of the screen on which my webpage content is being viewed is
+minimum 500px, do sth. e.g. let the background color be red.
+Additionally, if screen size is maximum 499px, do sth. e.g. blue background-->
