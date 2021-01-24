@@ -1,0 +1,28 @@
+%message {
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px;
+}
+
+.success {
+  @extend %message;  /*--extend the template 'message'*/
+  background-color: green;  /*for the .success class ref, add this tweek to extended template */
+}
+
+.warning {
+  @extend %message;
+  background-color: orange;
+}
+
+.error {
+  @extend %message;
+  background-color: red;
+}
+
+// % lets you define a general template; something other things are gonna inherit from
+// the .class refs inherit from % template.
+// for the purpose of slightly tweeking the template, .class @extend %message
+// is defined in .class definittions in addition to the specific tweek definittions

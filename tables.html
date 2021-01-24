@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Presidents</title>  <!--shows on the webpage tab-->
+    <style>
+      table {
+        border: 2px solid black;
+        border-collapse: collapse;  /* converts double border lines in the table to single one*/
+        width: 50%;  /* increases the general width of the table */
+        text-align: center;
+      }
+
+      th, td {
+          border: 2px solid black;
+          padding: 5px;  /* allows text to be slightly away from border */
+      }
+
+      /* td {
+          border: 1px solid black;
+      } */
+
+      th {
+          background-color: lightgray;
+      }
+    </style>
+  </head>
+
+<!-- * assuming th and td style (boder) definitions were the same, we can use the following:
+      th, td {border: 1px solid black}-->
+
+  <body>
+    <h1>Presidents</h1>
+    <table>
+      <tr>  <!-- table row-->
+        <th>First Name</th>  <!-- table cell-->
+        <th>Last Name</th>
+        <th>Years in Office</th>
+      </tr>
+      <tr>
+        <td> George </td>
+        <td> Washington </td>
+        <td> 1789-1797 </td>
+      </tr>
+      <tr>
+        <td> John </td>  <!-- table head cell-->
+        <td> Adams </td>
+        <td> 1797-1801 </td>
+      </tr>
+    </table>
+
+  </body>
+
+</html>

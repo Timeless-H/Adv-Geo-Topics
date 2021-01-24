@@ -1,0 +1,17 @@
+h3 {
+  text-align: center
+}
+p {
+  text-align: justify
+}
+
+#Section1 {
+    font-style: normal;
+}
+#Section2 {
+    font-style: italic;
+}
+#Section3 {
+    font-style: oblique; color: magenta;
+}
+.section {font-weight: bold; text-decoration: underline;}
