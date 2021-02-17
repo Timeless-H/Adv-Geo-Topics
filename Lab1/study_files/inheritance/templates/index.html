@@ -1,0 +1,15 @@
+<!-- watch the way the files and folders have been arranged-->
+{% extends "layout.html" %}  <!-- inherit from layout.html-->
+
+{% block heading %}  <!-- create a block called heading-->
+  First Page
+{% endblock %}  <!--end of the 'heading' block -->
+
+{% block body %}  <!-- create another block called body-->
+<p>
+  Lorem ipsum dolor sit amet, consectet elit. And some other latin stuff that i dont even understand but am writing them anyways.
+</p>
+<a href="{{ url_for('more') }}"> See the 'more' webpage</a>
+{% endblock %}  <!--end of the 'body' block -->
+
+<!-- same code as in url folder but commonalities being inherited from layout.html -->
