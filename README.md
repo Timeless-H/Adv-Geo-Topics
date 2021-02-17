@@ -4,3 +4,4 @@ cd to project 1
   application.py is the main flask application.
   import.py contains the created tables.
   .html files are in the templates folder and appropriately named to be self explanatory.
+    
