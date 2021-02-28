@@ -25,3 +25,4 @@ This project is created with:
 Here is a working demo: 
 
 ## Illustrations
+![Web map homepage](./homepage.png)
