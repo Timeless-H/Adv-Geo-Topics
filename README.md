@@ -22,7 +22,8 @@ This project is created with:
 * MarkerCluster (a leaflet plugin for handling clustered markers. this plugin also has spiderfy capabilities for handling overlapping markers)
 
 ## Demo
-Here is a working demo: 
+Here is a video of working demo: 
 
 ## Illustrations
+An image of the homepage of the web mapping app where all the permits are displayed. When a search is run, the permits are filtered and the selected results are returned.
 ![Web map homepage](./homepage.png)
