@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Map</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" integrity="sha512-RLEjtaFGdC4iQMJDbMzim/dOvAu+8Qp9sw7QE4wIMYcg2goVoivzwgSZq9CsIxp4xKAZPKh5J2f2lOko2Ze6FQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" integrity="sha512-BBToHPBStgMiw0lD4AtkRIZmdndhB6aQbXpX7omcrXeG2PauGBl2lzq2xUZTxaLxYz5IDHlmneCZ1IJ+P3kYtQ==" crossorigin="anonymous" />
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster-src.js" integrity="sha512-gu3GZbPnPGREFcXgxeWVbp9Oeq3Tdvskd5PaQ0q//PCDMsa0WSSABIqLDwF5ebaDBfJbcM+lamNEe8ln9dPWwA==" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js" integrity="sha512-MQlyPV+ol2lp4KodaU/Xmrn+txc1TP15pOBF/2Sfre7MRsA/pB4Vy58bEqe9u7a7DczMLtU5wT8n7OblJepKbg==" crossorigin="anonymous"></script>
+</head>
+<body bgcolor="lightgreen">
+    <div class="row">
+        <div class="col-3" style="background-color: lightgreen;">
+            <h3>Search for Building Permits by Date of Issue</h3>
+            <p> Please enter the same date for both field if you want permits for a single date</p>
+            <form class="form-inline" action="/login_page" method="post">
+                <label for="from_date">From:</label>
+                <input type="date" name="from_date" class="form-control" placeholder="yyyy-MM-dd" value="" min="1997-01-01" max="2025-01-01" required>
+
+                <label for="to_date">To:</label>
+                <input type="date" name="to_date" class="form-control" placeholder="yyyy-MM-dd" value="" min="1997-01-01" max="2025-01-01" required>
+
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+        <div class="col-9">
+            <div id="mapid" style="height: 85vh; margin-top: 10px;"></div>
+            <!--initialize the map on the "mapid" div with a given center and zoom-->
+            <script type="text/javascript">
+                var mymap = L.map('mapid').setView([51.050, -114.085], 11);
+
+                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGhha3dlbnNpIiwiYSI6ImNrbGV2OHliMTFkN3Eyd3M0OHo3YTljZnEifQ.ibMYXTSyOWBJKCJHrj4ybQ', {
+                    maxZoom: 18,
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    id: 'mapbox/streets-v11',
+                    tileSize: 512,
+                    zoomOffset: -1
+                }).addTo(mymap);
+
+                var markers = L.markerClusterGroup();
+
+                fetch(decodeURIComponent({{ url | tojson }}))
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        var results = data.features;
+                        for (var i = 0; i < results.length; i++) {
+                            var a = results[i];
+                            var popup = '<b>Issued on:</b> ' + a.properties.issueddate +
+                                '<br/><b>Work Class Group:</b> ' + a.properties.workclassgroup +
+                                '<br/><b>Contractor Name:</b> ' + a.properties.contractorname +
+                                '<br/><b>Community Name:</b> ' + a.properties.communityname +
+                                '<br/><b>Original Address:</b> ' + a.properties.originaladdress;
+
+                            if (a.geometry) {
+                                var marker = L.marker([a.geometry.coordinates[1], a.geometry.coordinates[0]]);
+                                marker.bindPopup(popup);
+                                markers.addLayer(marker);
+                            }
+                        }
+                        mymap.addLayer(markers);
+
+
+                    });
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>
+
+<!--var geojsonLayer = L.GeoJSON("https://data.calgary.ca/resource/c2es-76ed.geojson");-->
+<!--geojsonLayer.addTo(mymap);-->
+<!--var oms = new OverlappingMarkerSpiderfier(map);-->
