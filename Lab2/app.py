@@ -23,7 +23,7 @@ class Account(db.Model):
 def index():
     url = "https://data.calgary.ca/resource/c2es-76ed.geojson"
     # url = "https://data.calgary.ca/resource/c2es-76ed.geojson?$where=issueddate > '2020-01-21' and issueddate < '2020-01-23'"
-    return render_template('map_page.html', url=url)
+    return render_template('map_page1.html', url=url)
 
 @app.route('/login_page', methods=['POST', 'GET'])
 def login_page():
@@ -37,8 +37,8 @@ def login_page():
             url = "https://data.calgary.ca/resource/c2es-76ed.geojson?issueddate={}-{}-{}T00:00:00.000".format(from_date.year, from_date.month, from_date.day)
         else:
             url = "https://data.calgary.ca/resource/c2es-76ed.geojson?$where=issueddate > '{}-{}-{}' and issueddate < '{}-{}-{}'".format(from_date.year, from_date.month, from_date.day, to_date.year, to_date.month, to_date.day)
-        print("from: {} \t to: {}".format(from_date, to_date))
-    return render_template('map_page.html', url=url)
+        # print("from: {} \t to: {}".format(from_date, to_date))
+    return render_template('map_page1.html', url=url)
 
 
 
