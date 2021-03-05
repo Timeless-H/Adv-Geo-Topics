@@ -25,8 +25,11 @@ This project is created with:
 [Here](https://youtu.be/KRLbNj9PYwI) is a video of working demo 
 
 ## Illustrations
-An image of the homepage of the web mapping app where all the permits are displayed. When a search is run, the permits are filtered and the selected results are returned.
+Some images of the homepage and the incident map layer of the web mapping app where we can toggle on/off permits and incidents. When a search is run, the permits are filtered and the selected results are returned.
 ![Web map homepage](./homepage.png)
+
+Incidents map layer overlayed with permits
+![Web map incidents page](./incidents.png)
 
 ## Contact
 Created by ****** - feel free to contact me
