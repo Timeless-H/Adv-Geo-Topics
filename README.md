@@ -1,8 +1,10 @@
-# Advance Geospatial Topics Lab Assignment 2
+# Advance Geospatial Topics Lab Assignments 2 and 3
 
 ## Objectives
-* Gain experience with Leaflet.js and GeoJSON.
+* Gain experience with Leaflet.js, GeoJSON and Mapbox Studio.
+* Design a visually appealing map layer.
 * Learn to build a geoweb app by mashing up two APIs.
+* Integrate a vector tile set to an existing GeoWeb application.
 
 ## Table of contents
 * [General info](#general-info)
