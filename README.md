@@ -35,4 +35,4 @@ Incidents map layer overlayed with permits
 ![Web map incidents page](./incidents.png)
 
 ## Contact
-Created by ****** - feel free to contact me
+Created by ***** - feel free to contact me
