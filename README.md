@@ -23,7 +23,7 @@ This project is created with:
 * Turf.js (a JavaScript library for spatial analysis)
 
 ## Demo
-The working demo video can be found [here](https://youtu.be/)
+The working demo video can be found [here](https://youtu.be/dt6kH-vwWhc)
 
 ## Illustrations
 A screenshot of the web mapping app showing a popup of the name of the icon (in this case a school) and its nearest health facility (highlighted with a pink circle).
