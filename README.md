@@ -27,7 +27,7 @@ The working demo video can be found [here](https://youtu.be/)
 
 ## Illustrations
 The homepage of the web mapping app is as shown below.
-![Web map homepage](./homepage.png)
+![Web map homepage](./Lab4_Homepage.png)
 
 ## Contact
 Created by ***** - feel free to contact me
