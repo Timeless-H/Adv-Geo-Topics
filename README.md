@@ -26,7 +26,7 @@ This project is created with:
 The working demo video can be found [here](https://youtu.be/)
 
 ## Illustrations
-The homepage of the web mapping app is as shown below.
+A screenshot of the web mapping app showing a popup of the name of the icon (in this case a school) and its nearest health facility (highlighted with a pink circle).
 ![Web map homepage](./Lab4_Homepage.png)
 
 ## Contact
