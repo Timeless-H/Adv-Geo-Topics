@@ -28,7 +28,7 @@ The working demo video can be found [here](https://youtu.be/dt6kH-vwWhc) and the
 
 ## Illustrations
 A screenshot of the web mapping app showing a drawn polylines (Pink) and their simplified version (Blue).
-![Web map homepage](./Lab5_demoshot.png)
+![Web map screenshot](./Lab5_Line_simplification.png)
 
 ## Contact
 Created by ***** - feel free to contact me
