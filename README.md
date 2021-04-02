@@ -24,7 +24,7 @@ This project is created with:
 * Turf.js (a JavaScript library for spatial analysis)
 
 ## Demo
-The working demo video can be found [here](https://youtu.be/dt6kH-vwWhc) and the live demo can be accessed [here](https://timeless-h.github.io/Lab5/templates/map_page.html)
+The working demo video can be found [here](https://youtu.be/J4h2Di2iaX0) and the live demo can be accessed [here](https://timeless-h.github.io/Lab5/templates/map_page.html)
 
 ## Illustrations
 A screenshot of the web mapping app showing a drawn polylines (Pink) and their simplified version (Blue).
