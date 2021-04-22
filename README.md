@@ -1,14 +1,15 @@
 # Advance Geospatial Topics Final Semester Project
 
-## Objective
-* Design a geo-web mapping application for taxi drop-off/pick-up hotspots in the city of Porto, Portugal for a user-chosen day and time range. 
-
 ## Table of contents
+* [Objective](#objective)
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [App documentation](#app-documentation)
 * [Demo](#demo)
 * [Illustrations](#illustrations)
+
+## Objective
+* Design a geo-web mapping application for taxi drop-off/pick-up hotspots in the city of Porto, Portugal for a user-chosen day and time range. 
 
 ## General info
 In order to build smart cities, it is esential to understand the spatio-temporal social dynamics of that city.
@@ -24,8 +25,8 @@ This project is created with:
 * Flask
 * Bootstrap 4
 * Mapbox Studio
-* Leaflet.js (a JavaScript web mapping API for interactive maps)
-* 
+* Mapboxgl.js 
+* ArcGIS Pro
 
 ## App documentation
 This section contains the guide on how to use the designed geo-web map application and an outline of some of its functionalities
