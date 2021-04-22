@@ -38,10 +38,13 @@ This section contains the guide on how to use the designed geo-web map applicati
 * A legend is provided for efficient comprehension of the various color codes used in the map.
 
 #### User guide
-*
+* Download and install (`python 3.7`)
+* Download and install and IDE (e.g., Pycharm, VSCode, Sublime, Atom, etc.)
+* Using Pycharm as an example:
+    * Install `flask` and its dependencies via `pip`
 
 #### Development
-if you are interested in contributing to our project (i.e., to fix a bug or enhance an existing module), follow these steps:
+If you are interested in contributing to our project (i.e., to fix a bug or enhance an existing module), follow these steps:
 
 - Fork the repo
 - Create a new branch (`git checkout -b improve-feature`)
