@@ -32,12 +32,27 @@ This project is created with:
 This section contains the guide on how to use the designed geo-web map application and an outline of its functionalities
 
 #### Functionalities
+* A register/login interface to register new users and allow old users to log-in to be able to access the app. 
 * Users can obtain for any day of the week, the possible locations in the city to get a taxi (if a passenger) or a customer (if a taxi driver). 
 * For more accurate results, users can further choose from six 4-hour time intervals for possible hotspots within that time frame.
 * A legend is provided for efficient comprehension of the various color codes used in the map.
 
 #### User guide
 *
+
+#### Development
+if you are interested in contributing to our project (i.e., to fix a bug or enhance an existing module), follow these steps:
+
+- Fork the repo
+- Create a new branch (`git checkout -b improve-feature`)
+- Make the appropriate changes in the files
+- Add changes to reflect the changes made
+- Commit your changes (`git commit -am 'improve feature'`)
+- Push to the branch (`git push origin improve-feature`)
+- Create a Pull Request 
+
+#### Bug(s)
+If you find a bug and you wish to make us aware, kindly open an issue [here](https://github.com/Timeless-H/Sem_Project/issues/new).
 
 ## Demo
 The working demo video can be found [here](https://youtu.be/J4h2Di2iaX0) and the live demo can be accessed [here](https://timeless-h.github.io/Lab5/templates/map_page.html)
@@ -50,4 +65,4 @@ Incidents map layer overlayed with permits
 ![Web map incidents page](./incidents.png)
 
 ## Contact
-Created by Hailun Yan & Perpetual H. Akwensi - feel free to contact us: ***@ucalgary.ca; perpetual.akwensi@ucalgary.ca
+Created by Hailun Yan & Perpetual H. Akwensi - feel free to contact us: hailun.yan@ucalgary.ca; perpetual.akwensi@ucalgary.ca
