@@ -29,7 +29,15 @@ This project is created with:
 * ArcGIS Pro
 
 ## App documentation
-This section contains the guide on how to use the designed geo-web map application and an outline of some of its functionalities
+This section contains the guide on how to use the designed geo-web map application and an outline of its functionalities
+
+#### Functionalities
+* Users can obtain for any day of the week, the possible locations in the city to get a taxi (if a passenger) or a customer (if a taxi driver). 
+* For more accurate results, users can further choose from six 4-hour time intervals for possible hotspots within that time frame.
+* A legend is provided for efficient comprehension of the various color codes used in the map.
+
+#### User guide
+*
 
 ## Demo
 The working demo video can be found [here](https://youtu.be/J4h2Di2iaX0) and the live demo can be accessed [here](https://timeless-h.github.io/Lab5/templates/map_page.html)
