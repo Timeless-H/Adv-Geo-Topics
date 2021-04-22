@@ -50,6 +50,12 @@ which will automatically reload your web application whenever you save changes.
 * Set the environment variable `DATABASE_URL` to be the URI of your PostgreSQL database, which you should be able to see from the credentials page on Heroku, and also modify the one in the app.py accordingly.
 * Run flask run to start up the application.
 
+---
+* In the `app.py`: 
+    * The `.\login` route handles the `POST` and `GET` requests from `\templates\login_page.html`.'
+    * and the `.\interface` route handles the rendering of the web app interface and map in `\templates\interface.html`. 
+---
+
 #### Development
 If you are interested in contributing to our project (i.e., to fix a bug or enhance an existing module), follow these steps:
 
