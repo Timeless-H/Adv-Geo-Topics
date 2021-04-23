@@ -78,8 +78,9 @@ Some screenshots of the developed geo-web.
 The app's default page showing the boundary of the city of Porto, here, no day or time has been selected yet. 
 ![Web map default page](./images/default_page.jpg)
 
-Incidents map layer overlayed with permits
-![an example of a hotspot given a selected day and time range](./images/sample.jpg)
+---
+An example of a hotspot given a selected day and time range
+![Example hotspot](./images/sample.jpg)
 
 ## Contact
 Created by Hailun Yan & Perpetual H. Akwensi - feel free to contact us: hailun.yan@ucalgary.ca; perpetual.akwensi@ucalgary.ca
