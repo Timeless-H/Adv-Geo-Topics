@@ -16,6 +16,30 @@
 	        background-color: #f0f0f0;
 	        border-color: #f5f5f5;
         }
+
+        .row {
+            height: 20px;
+            width: 98%;
+            margin-left: 6px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .colors {
+            background: linear-gradient(
+                to right,
+                #3288BD,
+                #FFFFBE,
+                #D53E4F
+            );
+            //margin-bottom: 5px;
+        }
+
+        .labels {
+            //width: 33%;
+            margin-top: -15px;
+            display: flex;
+            justify-content: space-between;
+        }
     </style>
     <body>
         <div class="container-fluid">
@@ -51,13 +75,12 @@
                     <br/>
                     <div class="card">
                         <div class="card-header">Hotspot map legend</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <img src="../images/pickup_hotspot.png" alt="pickup hotspot" width="15" height="15">
-                                </div>
+                            <div class="row colors"></div>
+                            <div class="row labels">
+                                <div class="label">Coldspots</div>
+                                <div class="label">Overlaps</div>
+                                <div class="label">Hotspots</div>
                             </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-md-9">
