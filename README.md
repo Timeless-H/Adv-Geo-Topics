@@ -73,11 +73,13 @@ If you find a bug and you wish to make us aware, kindly open an issue [here](htt
 The working demo video can be found [here](https://youtu.be/J4h2Di2iaX0) and the live demo can be accessed [here](https://timeless-h.github.io/Sem_Project/templates/interface.html)
 
 ## Illustrations
-Some images of the homepage and the incident map layer of the web mapping app where we can toggle on/off permits and incidents. When a search is run, the permits are filtered and the selected results are returned.
-![Web map homepage](./homepage.png)
+Some screenshots of the developed geo-web. 
+
+The app's default page showing the boundary of the city of Porto, here, no day or time has been selected yet. 
+![Web map default page](./images/default_page.jpg)
 
 Incidents map layer overlayed with permits
-![Web map incidents page](./incidents.png)
+![an example of a hotspot given a selected day and time range](./images/sample.jpg)
 
 ## Contact
 Created by Hailun Yan & Perpetual H. Akwensi - feel free to contact us: hailun.yan@ucalgary.ca; perpetual.akwensi@ucalgary.ca
