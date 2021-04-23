@@ -22,7 +22,7 @@
         #legendP {background-color: #D53E4F;}
         #boundary {background-color: #FFFFFF;
                     border-color: #00FFC5;
-                    margin-bottom: -15px;}
+                    margin-bottom: -0px;}
 
 
         .colors {
@@ -32,7 +32,6 @@
                 #FFFFBE,
                 #D53E4F
             );
-            //margin-bottom: 5px;
         }
         .row {
             height: 20px;
@@ -43,7 +42,6 @@
         }
 
         .labels {
-            //width: 33%;
             margin-top: -15px;
             display: flex;
             justify-content: space-between;
@@ -69,7 +67,7 @@
                     </div>
                     <br>
                     <div class="card">
-                        <div class="card-header" style="">Select time of day</div>
+                        <div class="card-header">Select time of day</div>
                         <div class="card-body">
                             <input type="button" id="0_4" value="00:00 ~ 03:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
                             <input type="button" id="4_8" value="04:00 ~ 07:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
@@ -83,7 +81,7 @@
                     <input type="button" id="finish-btn" value ="Finish" class="btn custom-btn mb-4" onclick="okay()"></input>
                     <br/>
                     <div class="card">
-                        <div class="card-header">Hotspot map legend</div>
+                        <div class="card-header">Legend</div>
                         <div class="card-body" style="height:150px;">
 <!--                            <div class="row colors"></div>-->
 <!--                            <div class="row labels">-->
@@ -95,25 +93,25 @@
                                 <li>
                                     <label>
                                         <button id="legendD" class="btn mr-2"></button>  <!--style="color:white"-->
-                                        Drop-off
+                                        Drop-Off Hotspot
                                     </label>
                                 </li>
                                 <li>
                                     <label>
                                         <button id="legendO" class="btn custom-btn mr-2"></button>
-                                        Overlap
+                                        Pick-Up and Drop-Off Hotspot
                                     </label>
                                 </li>
                                 <li>
                                     <label>
                                         <button id="legendP" class="btn custom-btn mr-2"></button>
-                                        Pick-up
+                                        Pick-Up Hotspot
                                     </label>
                                 </li>
                                 <li>
                                     <label>
                                         <button id="boundary" class="btn custom-btn mr-2"></button>
-                                        Boundary
+                                        Porto City Boundary
                                     </label>
                                 </li>
                             </ul>
