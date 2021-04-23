@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
-                    <H4>Nav Pane</H4>
+                    <H4>Porto Taxi Pick-Up/Drop-Off Hotspot Finder</H4>
                     <div class="card">
                         <div class="card-header">Select Day</div>
                         <div class="card-body">
@@ -44,33 +44,17 @@
                             <input type="button" id="12_16" value="12:00 ~ 15:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
                             <input type="button" id="16_20" value="16:00 ~ 19:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
                             <input type="button" id="20_0" value="20:00 ~ 23:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
-
-                            <br/> <br/> <br/>
-
-                            <input type="button" id="finish-btn" value ="Finish" class="btn custom-btn mb-2" onclick="okay()"></input>
-
                         </div>
-
                     </div>
-                    <br>
+                    <br> 
+                    <input type="button" id="finish-btn" value ="Finish" class="btn custom-btn mb-4" onclick="okay()"></input>
+                    <br/>
                     <div class="card">
                         <div class="card-header">Hotspot map legend</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <ul class="list-unstyled zones">
-                                        <li>
-                                            <label>
-                                                High
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>Medium</label>
-                                        </li>
-                                        <li>
-                                            <label>Low</label>
-                                        </li>
-                                    </ul>
+                                    <img src="../images/pickup_hotspot.png" alt="pickup hotspot" width="15" height="15">
                                 </div>
                             </div>
                         </div>
@@ -138,7 +122,7 @@
                                                     "2",
                                                     "#3288BD",
                                                     "3",
-                                                    "#E6F598",
+                                                    "#FFFFBE", //E6F598
                                                     '#3bb2d0'
                                                 ],
                                                 'fill-outline-color': '#000000',
@@ -174,8 +158,6 @@
                                 // turn on the layer's visibility by changing the object's layout  visibility property
                                 map.setLayoutProperty(layer, 'visibility', 'visible');
                             }
-
-
                         </script>
                     </div>
                 </div>
