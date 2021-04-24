@@ -70,7 +70,7 @@ If you are interested in contributing to our project (i.e., to fix a bug or enha
 If you find a bug and you wish to make us aware, kindly open an issue [here](https://github.com/Timeless-H/Sem_Project/issues/new).
 
 ## Demo
-The working demo video can be found [here](https://youtu.be/J4h2Di2iaX0) and the live demo can be accessed [here](https://timeless-h.github.io/Sem_Project/templates/interface.html)
+The working demo video can be found [here](https://youtu.be/hP6hAh1Wr1o) and the live demo can be accessed [here](https://timeless-h.github.io/Sem_Project/templates/interface.html)
 
 ## Illustrations
 Some screenshots of the developed geo-web. 
