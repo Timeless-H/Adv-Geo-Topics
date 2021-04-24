@@ -40,18 +40,15 @@ This section contains the guide on how to use the designed geo-web map applicati
 * Download and install (`python 3.7`)
 * Download and install and IDE (e.g., Pycharm, VSCode, Sublime, Atom, etc.)
 * Using Pycharm as an example:
-    * In ur terminal install `Flask`, `Flask-Session`, `psycopg2-binary`and `SQLAlchemy` via `pip3 install`
-* Set up a PostgreSQL database to use with the application. it can be set up locally on your computer or hosted online at [www.heroku.com](https://www.heroku.com).
+    * In ur terminal install `Flask` via `pip3 install`
 * Download our repository to your working directory, and in the terminal navigate to this working directory. 
 * Set the environment variable `FLASK_APP` to be `app.py`. On a Mac or on Linux, the command to do this is `export FLASK_APP=app.py`. 
 On Windows, the command is instead `set FLASK_APP=app.py`. This is optionally but you can also set the environment variable `FLASK_DEBUG` to `1` to activate Flask’s debugger
 which will automatically reload your web application whenever you save changes.
-* Set the environment variable `DATABASE_URL` to be the URI of your PostgreSQL database, which you should be able to see from the credentials page on Heroku, and also modify the one in the app.py accordingly.
 * Run flask run to start up the application.
 
 ---
 * In the `app.py`: 
-    * The `.\login` route handles the `POST` and `GET` requests from `\templates\login_page.html`.'
     * and the `.\interface` route handles the rendering of the web app interface and map in `\templates\interface.html`. 
 ---
 
