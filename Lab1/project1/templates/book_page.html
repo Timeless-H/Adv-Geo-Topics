@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <!-- <link rel="stylesheet/text" href="{{ url_for('static', filename = 'login_page.css') }}"/> -->
+
+    <title>book details</title>
+  </head>
+  <body>
+    <div class="container2" style="margin-top:20px;  padding:70px">
+      <div class="b-details">
+        <h3>Details of Selected Book</h3>
+        <table width=60% style="justify-content: center">
+          <tr>
+            <th scope='row'>ID</th>
+            <td>{{ result[0] }}</td>
+          <tr>
+          <tr>
+            <th scope='row'>ISBN</th>
+            <td>{{ result[1] }}</td>
+          </tr>
+          <tr>
+            <th scope='row'>Title</th>
+            <td> {{ result[2] }} </td>
+          </tr>
+          <tr>
+            <th scope='row'>Author</th>
+            <td>{{ result[3] }}</td>
+          </tr>
+          <tr>
+            <th scope='row'>Year</th>
+            <td>{{ result[4] }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="rate_review" style="margin-top:20px">
+        <a href="{{ url_for('rate_review') }}">Rate and Review</a>
+        <!-- redirect add review from user -->
+      </div>
+      <div class="api_info" style="margin-top:20px">
+        <a href="{{ url_for('api', isbn = result[1]) }}">View 3rd Party Book Info</a>
+        <!-- redirect and display api info -->
+      </div>
+      <div class="rate_review_details" style="margin-top:50px">
+        <h3>User Reviews and Ratings of Selected Book</h3>
+        <!-- display review from users (and api if any)-->
+      </div>
+    </div>
+  </body>
+</html>

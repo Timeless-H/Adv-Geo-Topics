@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <!-- <link rel="stylesheet/text" href="{{ url_for('static', filename = 'login_page.css') }}"/> -->
+
+    <title>Rating and Review</title>
+  </head>
+  <body>
+    <div class="container3" style="margin-top:2%;  padding:20px">
+      <h3>Leave a Review: <br></h3>
+
+      <form action="{{ url_for('rate_review') }} " method = "post">
+        <div class = "form-rate">
+          <div class="rating">
+            <input type="radio" name="rating" value="5" id="5">
+            <label for="5">5</label>
+            <input type="radio" name="rating" value="4" id="4">
+            <label for="4">4</label>
+            <input type="radio" name="rating" value="3" id="3">
+            <label for="3">3</label>
+            <input type="radio" name="rating" value="2" id="2">
+            <label for="2">2</label>
+            <input type="radio" name="rating" value="1" id="1">
+            <label for="1">1</label>
+          </div>
+        </div>
+        <div class="form-review">
+          <div class="review">
+            <label for="textarea_1">Type review here </label>
+            <textarea class="form-control" id="textarea_1" name = "review" rows="3"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" >Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

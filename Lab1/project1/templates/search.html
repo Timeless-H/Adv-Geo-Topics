@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet/text" href="{{ url_for('static', filename = 'login_page.css') }}"/> -->
+
+  <title>Search Books</title>
+</head>
+  <body>
+    <div class="container1" style="margin-top:5%;  padding:20px">
+      <div class="search-form">
+        <form action="{{ url_for('search') }}" method="POST">
+          <div class="form-group">
+            <label>ISBN</label>
+            <input type="text" name='isbn' class="form-control" placeholder="Enter book ISBN">
+          </div>
+          <div class="form-group">
+            <label>Author</label>
+            <input type="text" name='author' class="form-control" placeholder="Author(s)">
+          </div>
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" name='title' class="form-control" placeholder="Book title">
+          </div>
+
+          <button type="submit" class="btn btn-primary" >Search</button>
+          <!-- <a class="btn btn-secondary" href="{{ url_for('login_page') }}" role="button">Login</a> -->
+        </form>
+      </div>
+      <div class="search-result" style="margin-top:5%">
+        <table width=100%>
+          <tr>
+          <th scope='col'>ID</th>
+          <th scope='col'>ISBN</th>
+          <th scope='col'>Title</th>
+          <th scope='col'>Author</th>
+          <th scope='col'>Action</th>
+          <tr>
+
+          {% for value in result %}
+          <tr>
+            <td>{{ value[0] }}</td>
+            <td>{{ value[1] }}</td>
+            <td>{{ value[2] }}</td>
+            <td>{{ value[3] }}</td>
+            <!-- <td><a href="https://127.0.0.1:5000/book_page/{{ value[0] }}">View Book Detail</a></td> -->
+            <td><a href="{{ url_for('book_page', book_id = value[0]) }}">View Book Detail</a></td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <!--
+
+    Create a table to populate book
+    Will receive result from search endpoint
+    each row will have a column of action (review)
+    <!-- The review link will have an href to the book_detail enpoint with (book_id => as parameter)  -->
+  </body>
+</html>

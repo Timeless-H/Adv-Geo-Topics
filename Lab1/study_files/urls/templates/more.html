@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My website</title>
+  </head>
+  <body>
+    <h1>My second webpage</h1>
+    <ul>
+      {% for name in names %}
+        <li> {{ name }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}"> Go back to first page</a>
+  </body>
+</html>
