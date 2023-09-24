@@ -1,2 +1,2 @@
 # Adv-Geo-Topics
-Advance geospatial topics course
+Advance geospatial topics Fall 2021
