@@ -23,3 +23,6 @@ cd to project 1
 
 ### Lab 6: 
 ![ReadMe page](./Lab6/README.md)
+
+### Term Project: 
+![ReadMe page](./term_project/README.md)
