@@ -1,4 +1,6 @@
-# ENGO 551: Advance Topics on Geospatial Technologies (Winter 2021)
+# Project 0
+
+ENGO 551 - Adv. Topics on Geospatial Technologies
 
 This project is about the design of a website on a topic of choice given a set of instructions.
 My topic of choice is to design a website that introduces my country Ghana.

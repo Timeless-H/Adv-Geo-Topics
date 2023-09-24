@@ -1,0 +1,42 @@
+.item5, .item3, .item2, .item1 {
+  background-color: rgba(255, 255, 255, 0.8);
+  justify-content: center;
+}
+
+.item1 {
+  /*inheritance implementation*/
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+
+/*variables implementation*/
+.item2 {
+  padding: 10px;
+  text-align: center;
+  /*nesting implementation*/
+}
+.item2 h3 {
+  text-decoration: underline;
+  color: red;
+  font-size: 30px;
+  margin: 0px 15px 30px;
+}
+.item2 h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0px 0px 30px;
+}
+
+.item3 {
+  padding: 10px;
+  text-align: justify;
+}
+
+.item5 {
+  text-align: center;
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+/*# sourceMappingURL=Agriculture1.css.map */

@@ -1,0 +1,43 @@
+%messages {
+    background-color: rgba(255, 255, 255, 0.8);
+    justify-content: center;
+}
+
+.item1 {
+  @extend %messages;  /*inheritance implementation*/
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 30px;
+  }
+
+$padding: 10px;  /*variables implementation*/
+
+.item2 {
+  @extend %messages;
+  padding: $padding;
+  text-align: center;
+                        /*nesting implementation*/
+  h3 {
+    text-decoration: underline;
+    color: red;
+    font-size: 30px;
+    margin: 0px 15px 30px;
+  }
+
+  h4 {font-size: 20px;
+    font-weight: bold;
+    margin: 0px 0px 30px;}
+  }
+
+.item3 {
+  @extend %messages;
+  padding: $padding;
+  text-align: justify;
+}
+
+.item5 {
+  @extend %messages;
+  text-align: center;
+  font-size: 25px;
+  margin: 10px 0;
+  }

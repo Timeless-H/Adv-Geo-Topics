@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta>
+    <title>My Webpage!</title>  <!--shows on the webpage tab-->
+    <style>
+      ol > li {  <!-- immediate selector: selects li that r direct children of ol>
+        font-size: 12px;
+        font-style:italic;
+        color: red
+      }
+      /* ol li {
+        font-size: 12px;  <!-- descendants selector: every li under ol grandchildern inclusive-->
+        font-style:italic;
+      } */
+    </style>
+  </head>
+  <body>
+    An Unordered List:
+    <ul>  <!--means unordered list, just bulleted-->
+      <li>One Item</li>
+      <li>Another Item</li>
+      <li>Yet Another Item</li>
+    </ul>
+    An Ordered List:
+    <ol>  <!--means ordered list, so its gonna be numbered-->
+      <li>First Item</li>
+      <li>Second Item</li>
+      <li>Third Item</li>
+        <ul>
+          <li>sub bulleted item</li>
+          <li>another sub bulleted item</li>
+        </ul>
+      <li>Another Item</li>
+    </ol>
+  </body>
+</html>
+
+<!-- how to select the grandchildren -->

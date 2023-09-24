@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<!-- working with bootstrap 4 (layout): which is basically based on columns -->
+
+<html>
+  <head>
+    <meta name="viewport" content="width: device-width, initial-scale: 1.0">
+    <title>my bootstrap-based webpage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .row > div {
+        padding: 20px;  /*spacing around text*/
+        background-color: cyan;
+        border: 2px solid black; /*column and outer lines*/
+        text-align: left;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-lg-3-sm-6">  <!--on a large (lg) screen, take 3 cols but on a small (sm) screen, take 6 of the 12 boostrap grid layout-->
+        first item goes here
+      </div>
+      <div class="col-lg-3-sm-6">
+        second item goes here
+      </div>
+      <div class="col-lg-3-sm-6">
+        third item goes here
+      </div>
+      <div class="col-lg-3-sm-6">
+        forth item goes here
+      </div>
+    </div>
+  </body>
+</html>
+
+
+<!-- that is, since the width of col is half of page on a small screen, the
+last two cols wraps to the next row
+whereas a large screen takes all 4 cols on one row-->
