@@ -16,3 +16,5 @@ cd to project 1
   .html files are in the templates folder and appropriately named to be self explanatory.
     
 ### Labs 3 & 4: ![ReadMe page](./Lab3_4/README.md)
+
+### Lab 5: ![ReadMe page](./Lab5/README.md)
