@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Taxi Hotspot Finder</title>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+        <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js'></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+        .btn.custom-btn {
+	        background-color: #f0f0f0;
+	        border-color: #f5f5f5;
+        }
+
+        #legendD {background-color: #3288BD;}
+        #legendO {background-color: #FFFFBE;}
+        #legendP {background-color: #D53E4F;}
+        #boundary {background-color: #FFFFFF;
+                    border-color: #00FFC5;
+                    margin-bottom: -0px;}
+
+
+        .colors {
+            background: linear-gradient(
+                to right,
+                #3288BD,
+                #FFFFBE,
+                #D53E4F
+            );
+        }
+        .row {
+            height: 20px;
+            width: 98%;
+            margin-left: 6px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .labels {
+            margin-top: -15px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <body>
+        <div class="container-fluid" style="margin-top:-10px;">
+            <div class="row">
+                <div class="col-md-3">
+                    <H4 style="text-align:center; margin-bottom: 35px; margin-top: 20px;">Porto Taxi Pick-Up/Drop-Off Hotspot Finder</H4>
+
+                    <div class="card">
+                        <div class="card-header">Select Day</div>
+                        <div class="card-body">
+                            <input type="button" id="Sun" value="Sun" class="btn custom-btn mb-2" onclick="get_day(this.id)"></input>  <!--style="color:white"-->
+                            <input type="button" id="Mon" value="Mon" class="btn custom-btn mb-2" onclick="get_day(this.id)"></input>
+                            <input type="button" id="Tue" value="Tue" class="btn custom-btn mb-2" onclick="get_day(this.id)"></input>
+                            <input type="button" id="Wed" value="Wed" class="btn custom-btn mb-2" onclick="get_day(this.id)"></input>
+                            <input type="button" id="Thurs" value="Thur" class="btn custom-btn mb-2" onclick="get_day(this.id)"></input>
+                            <input type="button" id="Fri" value="Fri" class="btn custom-btn mb-2" onclick="get_day(this.id)"></input>
+                            <input type="button" id="Sat" value="Sat" class="btn custom-btn mb-2" onclick="get_day(this.id)"></input>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <div class="card-header">Select time of day</div>
+                        <div class="card-body">
+                            <input type="button" id="0_4" value="00:00 ~ 03:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
+                            <input type="button" id="4_8" value="04:00 ~ 07:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
+                            <input type="button" id="8_12" value="08:00 ~ 11:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
+                            <input type="button" id="12_16" value="12:00 ~ 15:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
+                            <input type="button" id="16_20" value="16:00 ~ 19:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
+                            <input type="button" id="20_0" value="20:00 ~ 23:59" class="btn custom-btn mb-2" onclick="get_time(this.id)"></input>
+                        </div>
+                    </div>
+                    <br> 
+                    <div class="d-flex justify-content-center">
+                    <input type="button" id="finish-btn" value ="Finish" class="btn custom-btn mb-4" onclick="okay()"></input>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-header">Legend</div>
+                        <div class="card-body" style="height:150px;">
+                            <ul class="list-unstyled zones">
+                                <li>
+                                    <label>
+                                        <button id="legendD" class="btn mr-2"></button>  <!--style="color:white"-->
+                                        Drop-Off Hotspot
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <button id="legendO" class="btn custom-btn mr-2"></button>
+                                        Pick-Up and Drop-Off Hotspot
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <button id="legendP" class="btn custom-btn mr-2"></button>
+                                        Pick-Up Hotspot
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <button id="boundary" class="btn custom-btn mr-2"></button>
+                                        Porto City Boundary
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div id="mapid" style="height: 98vh; margin-top: 10px;"></div>
+                        <script type="text/javascript">
+                            mapboxgl.accessToken = 'pk.eyJ1IjoieWFuYTgyMjciLCJhIjoiY2ttMXFwZmFnMm45dzMybXMzeXBuYmdpdSJ9.MymqPTFsnTMtOutC_sJLng';
+                            var map = new mapboxgl.Map({
+                                container: 'mapid',
+                                style: 'mapbox://styles/yana8227/cknt71owk0wyz17qm6d8v15dt', //stylesheet location
+                                center: [-8.612509, 41.159715],
+                                zoom: 12
+                            });
+                            
+                            time_intervals = ["0_4", "4_8", "8_12", "12_16", "16_20", "20_0"];
+                            weekdays = ["Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+                            url = "https://raw.githubusercontent.com/Timeless-H/Sem_Project/main/data/xxxx.geojson"
+                            layers = [];
+
+                            map.on('load', function () {
+                                map.addSource("porto_boundary" ,{
+                                    type: "geojson",
+                                    data: url.replace("xxxx", "Porto_Boundary")
+                                });
+                                map.addLayer({
+                                    'id': "porto_boundary",
+                                    'type': 'line',
+                                    'source': "porto_boundary",
+                                    'layout': {
+                                    // Make the layer visible by default.
+                                    'visibility': "visible"
+                                    },
+                                    'paint': {
+                                    'line-color': '#00FFC5',
+                                    'line-width': 2
+                                    }
+                                });
+                           
+                                for (i = 0; i < time_intervals.length; ++i){
+                                    for (j = 0; j < weekdays.length; ++j){
+
+                                        layer_name = time_intervals[i] + "_" + weekdays[j];
+                                        layers.push(layer_name);
+
+                                        map.addSource(layer_name ,{
+                                            type: 'geojson',
+                                            data: url.replace("xxxx", layer_name)
+                                        });
+                                        map.addLayer({
+                                            'id': layer_name,
+                                            'type': 'fill',
+                                            'source': layer_name,
+                                            'layout': {
+                                            // Make the layer visible by default.
+                                            'visibility': "none"
+                                            },
+                                            'paint': {
+                                                'fill-color': [
+                                                    'match',
+                                                    ['get', 'merge'],
+                                                    "1",
+                                                    '#D53E4F',
+                                                    "2",
+                                                    "#3288BD",
+                                                    "3",
+                                                    "#FFFFBE", //E6F598
+                                                    '#3bb2d0'
+                                                ],
+                                                'fill-outline-color': '#000000',
+                                                'fill-opacity': [
+                                                'match',
+                                                    ['get', 'merge'],
+                                                    "0",
+                                                    0,
+                                                    0.8
+                                                ]
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                            
+
+                            var day_time = {"weekday":"", "time":""};
+
+                            function get_time(time) {
+                                day_time["time"] = time;
+                            }
+
+                            function get_day(day) {
+                                day_time["weekday"] = day;
+                            }
+
+                            function okay() {
+                                for (i = 0; i < layers.length; ++i){
+                                    map.setLayoutProperty(layers[i], 'visibility', 'none');
+                                }
+                                layer = day_time["time"] + "_" + day_time["weekday"];
+                                // turn on the layer's visibility by changing the object's layout  visibility property
+                                map.setLayoutProperty(layer, 'visibility', 'visible');
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
