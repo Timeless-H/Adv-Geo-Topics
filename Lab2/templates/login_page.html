@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<!--        <link rel="stylesheet" href="templates\styles.css">-->
+        <title>login page</title>
+    </head>
+    <body bgcolor="lightgreen">
+    <form action="/login_page" method="post">
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter Your Name" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+        <!-- <div class="msg">{{ msg }}</div> -->
+        <button type="submit" class="btn btn-primary" >Login</button>
+
+    </form>
+<!--    <h1>{{ username }}</h1>-->
+    </body>
+</html>
