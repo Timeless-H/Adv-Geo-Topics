@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Map</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.2/dist/leaflet.draw.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.EasyButton/2.4.0/easy-button.css" integrity="sha512-aiVWmB2G8oV+XfHo1CR6hEAxzCl48Lrl3UBzQ6P+BEMkT8qY1tGecdQx6x/X8i9cCVrwQU9ipsOsZlNkRh9n7w==" crossorigin="anonymous" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/6.3.0/turf.min.js" integrity="sha512-UNb2hkE/KkMe2ZBw0CWxpenoO0uudaEkJ0PT4cfGxCdL3sRSwaW7XyveNc9ZO0PQEq28FduAv8VvHaAjPbboBw==" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet-draw@1.0.2/dist/leaflet.draw.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--    <script src="https://www.unpkg.com/proj4@2.7.2/dist/proj4-src.js"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.EasyButton/2.4.0/easy-button.js" integrity="sha512-nMxgrgYu7vo/LNe5NFHZOIkwbodaU13UdYiDoDCuo3P2sryEyffrk1R3c2tFGbZ83AqaMbO19yhKnVgHztuqAw==" crossorigin="anonymous"></script>-->
+</head>
+<body bgcolor="lightblue">
+    <div class="row">
+        <h3 style="text-align: center">A user drawn path simplification geo-map</h3>
+        <p style="text-align: center">Please use the right side menu to draw, edit and delete. To simplify a drawn polyline, enter the tolerance value and doubleclick on a drawn polyline </p>
+        <div id="slider">
+            <b>Tolerance: </b>
+            <input type="text" id="tolerance_id">
+            <button onclick="simplifiedClear()">Clear Simplified</button>
+        </div>
+        <div id="mapid" style="height: 84vh; margin-top: 10px;"></div>
+        <script type="text/javascript">
+
+            var mymap = L.map('mapid').setView([51.050, -114.085], 11);
+
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGhha3dlbnNpIiwiYSI6ImNrbGV2OHliMTFkN3Eyd3M0OHo3YTljZnEifQ.ibMYXTSyOWBJKCJHrj4ybQ', {
+                maxZoom: 18,
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                id: 'phakwensi/cklurssos3p7s17qncw9hoy6u',
+                tileSize: 512,
+                zoomOffset: -1
+            }).addTo(mymap);
+
+            // Initialise the FeatureGroup to store editable layers
+            var editableLayers = new L.FeatureGroup();
+            mymap.addLayer(editableLayers);
+
+            var simplifiedLayer = new L.FeatureGroup();
+            simplifiedLayer.setStyle({color: "#0078ff",
+                                   weight: 3,
+                                   opacity: 0.65});
+            mymap.addLayer(simplifiedLayer);
+
+            var drawPluginOptions = {
+                position: 'topright',
+                draw: {
+                    polyline: {
+                        shapeOptions: {color: '#f357a1', weight: 6}
+                    },
+                    polygon: {
+                        allowIntersection: false, // Restricts shapes to simple polygons
+                        drawError: {
+                            color: '#e1e100', // Color the shape will turn when intersects
+                            message: '<strong>Polygon draw does not allow intersections!<strong> (allowIntersection: false)' // Message that will show when intersect
+                        },
+                        shapeOptions: {color: '#bada55'}
+                    },
+                    circle: false, // Turns off this drawing tool
+                    rectangle: {
+                        shapeOptions: {clickable: false}
+                    },
+                    marker: false,
+                },
+                edit: {
+                    featureGroup: editableLayers, //REQUIRED!!
+                }
+            };
+
+            // Initialise the draw control and pass it the FeatureGroup of editable layers
+            var drawControl = new L.Control.Draw(drawPluginOptions);
+            mymap.addControl(drawControl);
+            var selectedFeature = null;
+            mymap.on(L.Draw.Event.CREATED, function(e) {
+                var type = e.layerType, layer = e.layer;
+
+                editableLayers.addLayer(layer);
+
+                layer.on('dblclick', function(e){
+
+                    selectedFeature = e.target.editing.latlngs[0];
+                    console.log(selectedFeature)
+                    //selectedFeature.map(c => c["lng"] += 125);
+                    //console.log(selectedFeature)
+                    var jsonFile = JSON.stringify(selectedFeature, function(key, value) {
+                        if (typeof value === 'number') {
+                            return parseFloat(value.toFixed(5));
+                        }
+                        return value;
+                    });
+                    console.log(jsonFile)
+
+                    var arr_simplified = JSON.parse(jsonFile);
+
+                    var sth = L.polyline(arr_simplified).toGeoJSON();
+                    var ssw = L.polyline(arr_simplified).getLatLngs();
+
+                    //var sth = L.polyline(selectedFeature).toGeoJSON();
+                    //var ssw = L.polyline(selectedFeature).getLatLngs();
+                    //console.log(ssw[0])
+                    //console.log(ssw[0].lat)
+                    //console.log(ssw[0].lat.toFixed(3))
+                    //const Proj1 = L.CRS.Simple;
+                    //projected = Proj1.project(ssw);
+                    //var Proj = 'PROJCS["NAD83 / Alberta 10-TM (Forest)", GEOGCS["NAD83", DATUM["North_American_Datum_1983", SPHEROID["GRS 1980",6378137,298.257222101, AUTHORITY["EPSG","7019"]], AUTHORITY["EPSG","6269"]], PRIMEM["Greenwich",0, AUTHORITY["EPSG","8901"]], UNIT["degree",0.01745329251994328, AUTHORITY["EPSG","9122"]], AUTHORITY["EPSG","4269"]], UNIT["metre",1, AUTHORITY["EPSG","9001"]], PROJECTION["Transverse_Mercator"], PARAMETER["latitude_of_origin",0], PARAMETER["central_meridian",-115], PARAMETER["scale_factor",0.9992], PARAMETER["false_easting",500000], PARAMETER["false_northing",0], AUTHORITY["EPSG","3400"], AXIS["Easting",EAST], AXIS["Northing",NORTH]]';
+                    //var results = proj4(Proj, ssw);
+                    //console.log(results)
+                    //sss = L.LatLng(jsonFile);
+
+
+                    //$(document).ready(function() {
+                    var tol = $("#tolerance_id").val();
+                    console.log(tol)
+                    //});
+
+                    var options = {tolerance: tol, highQuality: false};
+                    var simplified = turf.simplify(sth, options);
+
+                    console.log(simplified)
+                    var SL = L.geoJSON(simplified);
+                    //var SL = L.geoJSON(simplified, {
+                        //style: {
+                            //"color": "#0078ff",
+                            //"weight": 3,
+                            //"opacity": 0.65
+                        //}
+                    //});
+                    selectedFeature = null;
+                    //editableLayers.addLayer(simplifiedLayer);
+                    simplifiedLayer.addLayer(SL);
+                });
+
+            });
+
+            function simplifiedClear(simplifiedLayer) {
+                //mymap.removeLayer(this.simplifiedLayer);
+                this.simplifiedLayer.clearLayers();
+                //simplifiedLayer = null;
+                //var simplifiedLayer = new L.geoJSON();
+            };
+
+        </script>>
+    </div>
+</body>
+</html>
