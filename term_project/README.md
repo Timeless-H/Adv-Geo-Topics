@@ -64,10 +64,10 @@ If you are interested in contributing to our project (i.e., to fix a bug or enha
 - Create a Pull Request 
 
 #### Bug(s)
-If you find a bug and you wish to make us aware, kindly open an issue [here](https://github.com/Timeless-H/Sem_Project/issues/new).
+If you find a bug and you wish to make us aware, kindly open an issue [here](https://github.com/Timeless-H/Adv-Geo-Topics/issues/new).
 
 ## Demo
-The working demo video can be found [here](https://youtu.be/hP6hAh1Wr1o) and the live demo can be accessed [here](https://timeless-h.github.io/Sem_Project/templates/interface.html)
+The working demo video can be found [here](https://youtu.be/hP6hAh1Wr1o) and the live demo can be accessed [here](https://timeless-h.github.io/Adv-Geo-Topics/term_project/templates/interface.html)
 
 ## Illustrations
 Some screenshots of the developed geo-web. 
